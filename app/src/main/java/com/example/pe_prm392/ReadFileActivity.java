@@ -36,11 +36,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class ReadFileActivity extends AppCompatActivity {
     Button read, write;
     EditText userInput, filename;
-    TextView fileContent;
 
     private static final int PERMISSION_REQUEST_STORAGE =1000;
     private static final int READ_REQUEST_CODE =42;
@@ -48,7 +49,6 @@ public class ReadFileActivity extends AppCompatActivity {
         read = findViewById(R.id.read_button);
         write = findViewById(R.id.write_button);
         userInput = findViewById(R.id.userInput);
-        fileContent = findViewById(R.id.content);
         filename=findViewById(R.id.input_filename);
     }
 
@@ -95,7 +95,8 @@ public class ReadFileActivity extends AppCompatActivity {
             if (data != null) {
                 Uri uri = data.getData();
                 String content = readTextFromUri(uri);
-                fileContent.setText(content);
+                userInput.setText(content);
+
             }
         }
     }
@@ -117,7 +118,7 @@ public class ReadFileActivity extends AppCompatActivity {
     private void writeFile() {
         String content = userInput.getText().toString();
         String fileName = filename.getText().toString();
-        if (fileName == null || fileName.trim()==null){
+        if (fileName.trim().isEmpty()){
             fileName="output";
         }
         fileName= fileName+".txt";
@@ -125,8 +126,8 @@ public class ReadFileActivity extends AppCompatActivity {
         try (FileWriter writer = new FileWriter(file)) {
             writer.write(content);
             Toast.makeText(this, "File saved to " + file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
-            userInput.setText("");
             filename.setText("");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
