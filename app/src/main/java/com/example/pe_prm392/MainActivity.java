@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         ((Button)findViewById(R.id.btn_go_to_image)).setOnClickListener(this);
+
+        ((Button)findViewById(R.id.btn_read_from_file)).setOnClickListener(this);
     }
 
     @Override
@@ -25,6 +27,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v.getId() == R.id.btn_go_to_image) {
                 Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
                 startActivity(intent);
+        }
+        if(v.getId() == R.id.btn_read_from_file) {
+            Intent intent = new Intent(MainActivity.this, ReadFileActivity.class);
+            startActivity(intent);
         }
     }
 }
