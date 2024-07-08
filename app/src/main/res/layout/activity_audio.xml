@@ -5,13 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".AudioActivity">
 
     <Button
-        android:id="@+id/btn_go_to_image"
+        android:id="@+id/btnOpenFile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go to capture image"
+        android:text="Open File"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -19,33 +19,38 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5" />
 
-    <Button
-        android:id="@+id/btn_read_from_file"
+    <TextView
+        android:id="@+id/tvFileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="35dp"
-        android:text="Read from file"
-        app:layout_constraintBottom_toTopOf="@+id/btn_go_to_image"
+        android:layout_marginBottom="59dp"
+        android:text="No file selected"
+        app:layout_constraintBottom_toTopOf="@+id/btnOpenFile"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNowPlaying"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:text="Now Playing"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/tvFileName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn_browse_video"
+        android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="Go to browse video"
+        android:layout_marginTop="46dp"
+        android:enabled="false"
+        android:text="Delete File"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_go_to_image" />
-
-    <Button
-        android:id="@+id/btnPlayAudio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="Play Audio"
-        app:layout_constraintBottom_toTopOf="@+id/btn_read_from_file"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnOpenFile" />
 </androidx.constraintlayout.widget.ConstraintLayout>

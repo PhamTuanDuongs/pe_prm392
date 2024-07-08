@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ((Button)findViewById(R.id.btn_go_to_image)).setOnClickListener(this);
         ((Button)findViewById(R.id.btn_read_from_file)).setOnClickListener(this);
         ((Button)findViewById(R.id.btn_browse_video)).setOnClickListener(this);
-
+        ((Button)findViewById(R.id.btnPlayAudio)).setOnClickListener(this);
     }
 
     @Override
@@ -36,6 +36,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(v.getId() == R.id.btn_browse_video) {
             Intent intent = new Intent(MainActivity.this, VideoActivity.class);
+            startActivity(intent);
+        }
+
+        if(v.getId() == R.id.btnPlayAudio) {
+            Intent intent = new Intent(MainActivity.this, AudioActivity.class);
             startActivity(intent);
         }
     }
